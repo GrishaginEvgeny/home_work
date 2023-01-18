@@ -54,11 +54,11 @@ func clearText(text string) string {
 
 func Top10(text string) []string {
 	var wordRateArray []wordRate
-	r := regexp.MustCompile("\\s+")
+	r := regexp.MustCompile(`\s+`)
 	clearedTextOfTabs := r.ReplaceAllString(text, " ")
 	clearedText := clearText(clearedTextOfTabs)
 	splitedText := strings.Split(clearedText, " ")
-	var lowerCasedStringsArray = stringsArrayToLower(splitedText)
+	lowerCasedStringsArray := stringsArrayToLower(splitedText)
 	for i := 0; i < len(lowerCasedStringsArray); i++ {
 		if isInWordRateArrayByIndex(lowerCasedStringsArray[i], wordRateArray) == -1 {
 			if lowerCasedStringsArray[i] != "" {
@@ -71,7 +71,6 @@ func Top10(text string) []string {
 	result := sortedWordRateArrayToStringArray(wordRateArray)
 	if len(result) >= 10 {
 		return result[0:10]
-	} else {
-		return result
 	}
+	return result
 }
