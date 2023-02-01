@@ -107,7 +107,6 @@ func (list *list) Remove(item *ListItem) {
 			item.Next.Prev = item.Prev
 			break
 		}
-
 	}
 }
 

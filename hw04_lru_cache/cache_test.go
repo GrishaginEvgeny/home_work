@@ -70,12 +70,10 @@ func TestCache(t *testing.T) {
 		val, wasInCache = c.Get("d")
 		require.Nil(t, val)
 		require.False(t, wasInCache)
-
 	})
 }
 
 func TestCacheMultithreading(t *testing.T) {
-
 	c := NewCache(10)
 	wg := &sync.WaitGroup{}
 	wg.Add(2)
